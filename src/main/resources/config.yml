@@ -1,0 +1,31 @@
+app_name: "dvcoders-workshop"
+env: "prod"
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+  adminConnectors:
+  - type: http
+    port: 8081
+  registerDefaultExceptionMappers: false
+
+logging:
+  level: INFO
+
+  loggers:
+      io.dropwizard: INFO
+
+  appenders:
+    - type: console
+      threshold: ALL
+      target: stdout
+      logFormat: "[%thread] %logger %X{event_id} %msg%n"
+    - type: file
+      currentLogFilename: /var/log/dvcoders-workshop/dvcoders-workshop.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: /var/log/dvcoders-workshop/dvcoders-workshop-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
+      logFormat: "%level [%thread] %logger %msg%n"

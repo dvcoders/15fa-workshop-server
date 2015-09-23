@@ -1,0 +1,35 @@
+
+.idea_modules/
+/out/
+MANIFEST.MF
+atlassian-ide-plugin.xml
+config-local.yml
+target/
+
+*\.py[co]
+
+# Editors
+*~
+*\.swp
+*\.swo
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Packages
+*.egg
+*.egg-info
+build
+dist
+sdist
+virtualenv/
+*.gz
+*.zip
+
+# Misc
+.ropeproject/
+.DS_Store
+.sass-cache/
+.idea
+
