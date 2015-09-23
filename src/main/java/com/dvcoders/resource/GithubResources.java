@@ -2,6 +2,7 @@ package com.dvcoders.resource;
 
 import com.codahale.metrics.annotation.Timed;
 import com.dvcoders.model.User;
+import com.dvcoders.other.Utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +33,13 @@ public class GithubResources {
                     Response.Status.NOT_FOUND);
         }
 
-        String githubUrl = "";
+        String githubUrl = user.getGithubUrl();
+
+        if (Utils.isEmpty(githubUrl)) {
+            throw new WebApplicationException("Github url is not set",
+                    Response.Status.NOT_FOUND);
+        }
+
         response.setStatus(307);
         response.sendRedirect(githubUrl);
     }
