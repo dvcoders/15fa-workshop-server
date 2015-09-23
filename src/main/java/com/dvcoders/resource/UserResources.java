@@ -18,7 +18,6 @@ import java.util.Map;
  */
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.MEDIA_TYPE_WILDCARD)
 public class UserResources {
 
     @Path("/list")
