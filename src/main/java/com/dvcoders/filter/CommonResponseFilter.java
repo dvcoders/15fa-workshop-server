@@ -43,7 +43,7 @@ public class CommonResponseFilter implements ContainerResponseFilter {
         @JsonProperty("current_at")
         private Long currentAt;
 
-        @JsonProperty("event")
+        @JsonProperty("event_id")
         private String event;
 
         @JsonUnwrapped
@@ -56,7 +56,7 @@ public class CommonResponseFilter implements ContainerResponseFilter {
             this.code = code;
             this.result = result;
             this.currentAt = System.currentTimeMillis();
-            this.event = MDC.get("event");
+            this.event = MDC.get("event_id");
         }
 
         public Integer getCode() {
@@ -65,6 +65,14 @@ public class CommonResponseFilter implements ContainerResponseFilter {
 
         public Object getResult() {
             return result;
+        }
+
+        public String getEvent() {
+            return event;
+        }
+
+        public Long getCurrentAt() {
+            return currentAt;
         }
 
         @Override

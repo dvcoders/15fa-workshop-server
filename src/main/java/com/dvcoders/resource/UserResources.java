@@ -18,6 +18,7 @@ import java.util.Map;
  */
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.MEDIA_TYPE_WILDCARD)
 public class UserResources {
 
     @Path("/list")
@@ -106,7 +107,7 @@ public class UserResources {
     @DELETE
     @Timed
     public Map<String, Object> deleteUser(User user) {
-        throw new WebApplicationException("You're do not have the privilege",
+        throw new WebApplicationException("You do not have the privilege",
                 Response.Status.UNAUTHORIZED);
 
 //        User existingUser = getUserFromDatastore(user.getStudentId());
